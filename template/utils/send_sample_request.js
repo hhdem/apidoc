@@ -94,7 +94,7 @@ define([
       });
 
       // send AJAX request, catch success or error callback
-      var ajaxRequest = {
+      /*var ajaxRequest = {
           url        : url,
           headers    : header,
           data       : param,
@@ -102,6 +102,17 @@ define([
           success    : displaySuccess,
           error      : displayError
       };
+    */
+      $.ajax({
+        url: url,
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(param),
+        headers: header,
+        type: type.toUpperCase(),
+        success: displaySuccess,
+        error: displayError
+      });
 
       $.ajax(ajaxRequest);
 
